@@ -1,0 +1,13 @@
+{
+  "name": "magikarp",
+  "owner": {
+    "name": "George Drury"
+  },
+  "plugins": [
+    {
+      "name": "magikarp",
+      "source": "./",
+      "description": "Always-on anti-over-engineering skill for coding agents: build only what was asked, nothing speculative. The axis is scope, not length."
+    }
+  ]
+}
