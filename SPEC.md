@@ -48,9 +48,11 @@ magikarp/
 ├── SPEC.md                    # This file (the what)
 ├── README.md                  # Install + one-paragraph pitch, links to both
 ├── .claude-plugin/
-│   └── plugin.json            # Claude Code plugin manifest
+│   ├── plugin.json            # Claude Code plugin manifest
+│   └── marketplace.json       # Marketplace listing — enables /plugin marketplace add
 ├── hooks/
-│   └── hooks.json             # SessionStart hook — cat core into context (no Node)
+│   ├── hooks.json             # SessionStart hook — cats session-context.json
+│   └── session-context.json   # Prebuilt compact ASCII JSON (generated from core)
 ├── core/
 │   └── magikarp.md            # Behavioural core — single source of truth
 ├── rules/
@@ -66,7 +68,8 @@ magikarp/
 │   ├── evolve-check.md
 │   └── help.md
 ├── scripts/
-│   └── check-port-drift.js    # Fails CI if a rules/ port diverges from core/
+│   ├── check-port-drift.js    # Fails CI if a rules/ port diverges from core/
+│   └── build-session-context.js  # Regenerates hooks/session-context.json from core
 └── benchmark/
     ├── README.md              # Rig design + how to run
     ├── tasks/                 # Fixed specs, one file per task
@@ -179,7 +182,7 @@ Each port is a faithful translation of `core/magikarp.md` into the target's nati
 ## Distribution
 
 - **Install:** `/plugin marketplace add georgedrury/magikarp`, then `/plugin install magikarp`.
-- **Always-on core.** The behavioural core is injected at session start via a `SessionStart` hook, so it is active for the whole session (`AGENTS.md`/rules files for instruction-only hosts). "Active by default" means injected, not invoked. The hook is a plain `cat` — **no Node dependency**; the always-on core needs nothing on PATH, because nothing asked for it.
+- **Always-on core.** The behavioural core is injected at session start by a `SessionStart` hook that `cat`s a prebuilt file (`hooks/session-context.json`) as `additionalContext` — active for the whole session (`AGENTS.md`/rules files for instruction-only hosts). "Active by default" means injected, not invoked. **No runtime dependency**: the shipped hook is a plain `cat`. The JSON is generated from `core/magikarp.md` at build time by `scripts/build-session-context.js` (Node — same toolchain as the drift check). Claude Code only ingests hook output that is a **single compact ASCII line**, so the build escapes non-ASCII and emits one line (raw UTF-8 or pretty-printed JSON is silently dropped); `node scripts/build-session-context.js --check` fails CI if it drifts from the core.
 - **Commands are invokable**, not always-on. Under the `magikarp` plugin namespace they resolve as `/magikarp:review`, `/magikarp:ultra`, `/magikarp:evolve-check`, `/magikarp:help`, and the mode toggles `/magikarp:gyarados` · `/magikarp:splash`. The hyphenated forms in this doc (`/magikarp-review`, …) are the conceptual/brand names.
 - **No default-mode config.** Splash is always the default. A knob to boot into Gyarados would be config-for-one-value — question 2 — so we don't ship it. Enter Gyarados explicitly, per session. Eating our own dog food.
 
