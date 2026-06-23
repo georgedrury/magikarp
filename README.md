@@ -4,6 +4,21 @@
 
 It only knows one move. So your agent builds only what you asked for — nothing speculative, nothing clever, nothing extra. Magikarp is an always-on behavioural skill that stops coding agents from over-engineering: the axis is **scope, not length** — it doesn't shorten your code, it stops the agent building the abstraction for one caller, the config nobody asked for, the case the spec never mentioned. The one move it makes, it makes correctly and completely.
 
+## Before / after
+
+You ask for a default page size of 25. Your agent writes a `PaginationConfigService`, defines a `PageSizeProvider` interface, layers an env var over a file over a default, and adds an in-memory cache "for later." You asked for a number; you got an architecture.
+
+With Magikarp — *Considered: PaginationConfigService — but nothing happened.*
+
+```ts
+// *splash* — single value; promote to config when a second appears
+const DEFAULT_PAGE_SIZE = 25
+```
+
+One move, done. The upgrade path sits in the comment for the day a second value actually appears — and when [the benchmark](benchmark/results/2026-06-23.md) made that day arrive, the held line absorbed it in **42% fewer changed lines** than the architecture did.
+
+More moves that did nothing — and what the alternative cost — in [examples/](examples/).
+
 ## Install (Claude Code)
 
 ```
