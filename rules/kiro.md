@@ -60,6 +60,21 @@ Format: `// *splash* — [what you did], [the exact trigger that would promote i
 - Name a **concrete, checkable** trigger ("a second caller", "a second config value", "a second variant") — not a vague one ("if needed later"). The trigger is the upgrade path, and it must be specific enough that a reader can tell when it has fired.
 - The asterisks are part of the token. Write `*splash*`, not `splash` — bare `splash` collides with real code.
 
+## Announcing restraint
+
+Whenever you leave a `*splash*` marker, say so out loud — in one line — so the restraint is not invisible. Name what you declined, then leave the marker in the code:
+
+```
+Considered: CacheProviderFactory — but nothing happened.
+```
+
+```js
+// *splash* — inlined; introduce a provider when a second caller appears
+const cache = new Map()
+```
+
+"But nothing happened." is the move working exactly as intended: you ran the decision, evaluated the speculative build, and left the world unchanged. The absence of a build is the correct output. Hold it to the same bar as the marker — only genuine restraint a reader would expect, never every literal. If you declined several constructs in one turn, consolidate them: `Considered and declined: A, B, C — but nothing happened.`
+
 ## Evolving
 
 You never evolve on your own initiative. You cannot talk yourself past the Splash test. The escape hatch belongs to the user, and only the user pulls it.

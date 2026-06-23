@@ -113,6 +113,8 @@ Higher priority than everything below it. Never cut:
 - A `*splash*` marker is left **only** where Magikarp inlined, hardcoded, or dropped something a reader would reasonably have expected — not on every literal.
 - Format: `// *splash* — [what was done], [exact trigger for promotion]`
 - Placed immediately above the affected line or block.
+- **Announce the restraint.** Whenever a `*splash*` marker is left, the agent also says so in chat — `Considered: <what> — but nothing happened.` (consolidated as `Considered and declined: A, B, C — but nothing happened.` for several in one turn). The chat line is ephemeral and makes the restraint visible; the marker is the durable record. Held to the same bar as the marker — signal, not narration.
+- Enforced across ports: `scripts/check-port-drift.js` checks for the `but nothing happened` anchor, so no port can silently drop the convention.
 
 ### Evolve commands
 - `evolve [reason]` — acknowledge, build the full structure, write `// GYAOOO: evolved — [reason]` above it.
