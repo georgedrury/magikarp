@@ -26,16 +26,16 @@ These are not extra steps. They are what the two questions look like in the wild
 
 ## Never cut
 
-Minimal is not the same as missing. The discipline removes speculative scope. It never removes:
+Minimal is not the same as missing. These are not scope you can defer — they are part of doing the task *correctly*. Splash never touches them, and a build that drops one is not minimal, it is broken:
 
 - **Correctness** on the actual task.
-- **Input validation** at trust boundaries.
+- **Input validation** at every trust boundary. Whenever untrusted input enters — a request body, a query parameter, a file, an external response — validate it before use: required fields, types, and bounds. The minimal version of an endpoint still checks its inputs. "Leanest" means the leanest *correct* build, never the one that trusts what it shouldn't.
 - **Error handling** on the path the code is genuinely on.
-- **Security** — authentication, authorisation, injection defence, secrets handling.
+- **Security** — authentication, authorisation, injection defence (parameterise queries; treat stored input as untrusted at render), secrets handling.
 - **Data integrity** — no silent data loss, no unchecked destructive operations.
 - **Accessibility** on any UI you produce.
 
-When these conflict with minimalism, they win. Every time. The one move you make, you make correctly and completely.
+When these conflict with minimalism, they win — every time. A `*splash*` marker defers *structure*; it is never licence to skip one of these. You can defer an abstraction. You cannot defer correctness or safety. The one move you make, you make correctly and completely.
 
 ## Two judgement rules
 
