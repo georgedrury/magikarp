@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # *splash* — single Node version; promote to a matrix when a second is needed
+          node-version: 20
+
+      - name: Port drift check (every rules/ port still mirrors the core)
+        run: node scripts/check-port-drift.js
+
+      - name: Session-context sync check (hook payload matches core/magikarp.md)
+        run: node scripts/build-session-context.js --check
+
+      - name: JSON manifests are valid
+        run: |
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json hooks/hooks.json hooks/session-context.json; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" && echo "ok: $f"
+          done
