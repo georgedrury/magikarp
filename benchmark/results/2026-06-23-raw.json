@@ -1,0 +1,568 @@
+{
+  "benchmark": "magikarp extension-cost",
+  "date": "2026-06-23",
+  "model": "claude-opus-4-8 (workflow subagents, inherited)",
+  "samples_per_cell": 3,
+  "arms": [
+    "control",
+    "magikarp"
+  ],
+  "measurement": "multiset non-blank line-diff between build and extended file sets; deterministic, not agent-scored",
+  "note": "A prior run was discarded for control contamination (agents discovered repo rules). This run bars filesystem access; core supplied to magikarp arm in-prompt. Control verified clean (0/15 *splash* references).",
+  "summary": [
+    {
+      "taskId": "01-config",
+      "arm": "control",
+      "n": 3,
+      "buildFiles": 1,
+      "buildLOC": 36.3,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 37,
+      "constructsRemoved": 1
+    },
+    {
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "n": 3,
+      "buildFiles": 1,
+      "buildLOC": 18.7,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 21.3,
+      "constructsRemoved": 1
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "control",
+      "n": 3,
+      "buildFiles": 2,
+      "buildLOC": 34,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 53.7,
+      "constructsRemoved": 1
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "n": 3,
+      "buildFiles": 1,
+      "buildLOC": 21.7,
+      "extFilesTouched": 2.3,
+      "extFilesCreated": 1.3,
+      "extLinesChanged": 35.7,
+      "constructsRemoved": 1
+    },
+    {
+      "taskId": "03-error",
+      "arm": "control",
+      "n": 3,
+      "buildFiles": 1.3,
+      "buildLOC": 29.3,
+      "extFilesTouched": 1.3,
+      "extFilesCreated": 0,
+      "extLinesChanged": 95.7,
+      "constructsRemoved": 2.3
+    },
+    {
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "n": 3,
+      "buildFiles": 1,
+      "buildLOC": 17.7,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 46.7,
+      "constructsRemoved": 2.3
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "control",
+      "n": 3,
+      "buildFiles": 3,
+      "buildLOC": 81.3,
+      "extFilesTouched": 3,
+      "extFilesCreated": 0,
+      "extLinesChanged": 114.3,
+      "constructsRemoved": 2
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "n": 3,
+      "buildFiles": 2,
+      "buildLOC": 46,
+      "extFilesTouched": 1.7,
+      "extFilesCreated": 0,
+      "extLinesChanged": 46,
+      "constructsRemoved": 1.3
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "control",
+      "n": 3,
+      "buildFiles": 6,
+      "buildLOC": 423,
+      "extFilesTouched": 11.3,
+      "extFilesCreated": 6.3,
+      "extLinesChanged": 739.7,
+      "constructsRemoved": 3.7
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "n": 3,
+      "buildFiles": 1,
+      "buildLOC": 70.3,
+      "extFilesTouched": 4,
+      "extFilesCreated": 3,
+      "extLinesChanged": 179.7,
+      "constructsRemoved": 2
+    }
+  ],
+  "measured": [
+    {
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 1,
+      "buildFiles": 1,
+      "buildLOC": 26,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 40,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Reworked the JSDoc on PRODUCT_PAGE_SIZE: the original comment asserted this was a single fixed page size with 'no caller-supplied override and no per-environment behaviour by design'. That invariant no longer holds once /featured uses a different size, so the misleading documentation was removed/rewritten."
+      ]
+    },
+    {
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 43,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 29,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "Doc comment on DEFAULT_PAGE_SIZE asserting the page size is 'not configurable: there is no caller-supplied page size, no override mechanism, and no per-environment behaviour' \u2014 reworded since the page size is now configurable per route.",
+        "Hardcoded use of DEFAULT_PAGE_SIZE inside the listProducts handler's slice() call \u2014 replaced with a per-handler pageSize parameter."
+      ]
+    },
+    {
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 3,
+      "buildFiles": 1,
+      "buildLOC": 40,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 42,
+      "constructsRemoved": 0,
+      "constructsRemovedList": []
+    },
+    {
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildFiles": 1,
+      "buildLOC": 31,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 25,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "PAGE_SIZE constant and its *splash* marker \u2014 the marker named \"a second page-size value\" as the promotion trigger, and this ticket supplies that second value (50 on /featured). Replaced with two named constants: DEFAULT_PAGE_SIZE (25) and FEATURED_PAGE_SIZE (50)."
+      ]
+    },
+    {
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 16,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 20,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Hardcoded module-level PAGE_SIZE = 25 constant and its *splash* marker in listProducts.ts \u2014 the marker's named trigger (a second page size required) has fired, so the single fixed size was promoted to a per-listing pageSize parameter on the handler."
+      ]
+    },
+    {
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildFiles": 1,
+      "buildLOC": 9,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 19,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Reworked the single hardcoded PAGE_SIZE = 25 constant and the inline slicing in listProducts: the body now delegates to a shared listProductsPage(res, pageSize) helper (two real callers), and the single page-size *splash* marker was replaced because its stated trigger (a second page-size value) fired."
+      ]
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 1,
+      "buildFiles": 2,
+      "buildLOC": 37,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 49,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Reworked the `formatUsd` helper in src/utils/formatCurrency.ts: previously it was intentionally hardcoded to en-US/USD with no parameters and a doc comment explicitly stating it must not be parameterised. The invoice requirement (EUR/GBP + user locale) made that constraint obsolete, so the formatting logic was generalised into a new `formatCurrency(amount, currency, locale)` function. `formatUsd` is kept as a thin USD wrapper so the existing order-confirmation call site is unchanged."
+      ]
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 2,
+      "buildFiles": 2,
+      "buildLOC": 33,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 52,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Module-private `usdFormatter` constant in src/utils/formatCurrency.ts (the single hardcoded USD/en-US Intl.NumberFormat instance) \u2014 reworked into a per-currency formatter map keyed by SupportedCurrency so EUR and GBP can be supported alongside USD."
+      ]
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 3,
+      "buildFiles": 2,
+      "buildLOC": 32,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 60,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "The module-level `usdFormatter` singleton (a single fixed en-US/USD Intl.NumberFormat). It was hardcoded to one locale and currency, so it could not be reused for EUR/GBP. Replaced by a cached, parameterized `getFormatter(locale, currency)`."
+      ]
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildFiles": 1,
+      "buildLOC": 21,
+      "extFilesTouched": 2,
+      "extFilesCreated": 1,
+      "extLinesChanged": 26,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Inlined Intl.NumberFormat with hardcoded en-US/USD in OrderConfirmation.tsx \u2014 extracted into the shared formatMoney helper in src/money.ts so the invoice email can reuse it and EUR/GBP are supported."
+      ]
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 24,
+      "extFilesTouched": 3,
+      "extFilesCreated": 2,
+      "extLinesChanged": 47,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Inlined Intl.NumberFormat formatter in OrderConfirmationPage (with its *splash* marker) \u2014 extracted into the shared src/utils/formatCurrency.ts util now that a second caller (the invoice email) exists, which is exactly the trigger the marker named."
+      ]
+    },
+    {
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildFiles": 1,
+      "buildLOC": 20,
+      "extFilesTouched": 2,
+      "extFilesCreated": 1,
+      "extLinesChanged": 34,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Inlined Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }) in OrderConfirmation.tsx \u2014 reworked into the shared formatCurrency() helper and the OrderConfirmation `*splash*` marker was removed since its promotion trigger has now fired."
+      ]
+    },
+    {
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 1,
+      "buildFiles": 2,
+      "buildLOC": 33,
+      "extFilesTouched": 2,
+      "extFilesCreated": 0,
+      "extLinesChanged": 102,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "Synchronous file-based config loading in src/config.ts: removed the `readFileSync`/`join` imports, the `CONFIG_PATH` module constant pointing at the bundled config file, and the synchronous body of `getApiBaseUrl` that read and parsed the bundled JSON without error handling. The function signature also changed from synchronous `(): string` to asynchronous `(): Promise<string>` because the config is now fetched over the network.",
+        "The bundled config file config/app-config.json: it is no longer read by the code (config now comes from the remote URL, with the value previously stored there preserved as the built-in DEFAULT_API_BASE_URL fallback)."
+      ]
+    },
+    {
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 31,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 99,
+      "constructsRemoved": 4,
+      "constructsRemovedList": [
+        "Synchronous bundled-file read in getApiBaseUrl (readFileSync of CONFIG_PATH) and its node:fs / node:path imports",
+        "The CONFIG_PATH constant pointing at the bundled app.config.json",
+        "The synchronous (non-Promise) return type of getApiBaseUrl, now async",
+        "The assumption (encoded in AppConfig's doc comment) that the config is always present and valid JSON"
+      ]
+    },
+    {
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 3,
+      "buildFiles": 1,
+      "buildLOC": 24,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 86,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "Synchronous file-based config read in src/config/apiBaseUrl.ts: removed the `readFileSync`/`JSON.parse` of a bundled `app.config.json` (and the `node:fs`/`node:path` imports and `CONFIG_PATH` constant). The bundled-file assumption (\"always present and valid JSON\") and the synchronous signature `getApiBaseUrl(): string` were incompatible with fetching over the network, so `getApiBaseUrl` was reworked into an async function returning `Promise<string>`."
+      ]
+    },
+    {
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildFiles": 1,
+      "buildLOC": 16,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 49,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "File-system config loading: removed the readFileSync/JSON.parse-from-bundle implementation, the node:fs and node:path imports, and the CONFIG_PATH bundled-file constant. The config is no longer read from disk, so getApiBaseUrl is now async (returns Promise<string>) and callers must await it."
+      ]
+    },
+    {
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 18,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 42,
+      "constructsRemoved": 4,
+      "constructsRemovedList": [
+        "CONFIG_PATH constant (join(__dirname, 'app-config.json')) \u2014 the config is no longer bundled, so the fixed local path is gone",
+        "readFileSync-based synchronous file read in getApiBaseUrl \u2014 replaced by an async remote fetch",
+        "node:fs (readFileSync) and node:path (join) imports \u2014 no longer reading from the local filesystem",
+        "Synchronous signature getApiBaseUrl(): string \u2014 reworked to async getApiBaseUrl(): Promise<string> because fetching is asynchronous"
+      ]
+    },
+    {
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildFiles": 1,
+      "buildLOC": 19,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 49,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "Removed the bundled-file read: CONFIG_PATH (join(__dirname, 'config.json')) and the readFileSync/JSON.parse synchronous read in getApiBaseUrl, along with their two *splash* markers that asserted the file was always present and valid. The config no longer ships in the bundle, so the fixed local path and the no-try/catch assumption no longer hold.",
+        "Removed the node:fs (readFileSync) and node:path (join) imports, which only existed to read the bundled file."
+      ]
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 1,
+      "buildFiles": 3,
+      "buildLOC": 94,
+      "extFilesTouched": 3,
+      "extFilesCreated": 0,
+      "extLinesChanged": 165,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "Hardcoded single-style .badge CSS rule (color/background/border baked into .badge) \u2014 split into a base .badge layout rule plus per-variant .success/.warning/.error colour classes.",
+        "Inlined check-only SVG path in Badge.tsx \u2014 replaced with a variant-driven glyph map (VARIANT_GLYPH) so each variant gets a distinguishing icon."
+      ]
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 2,
+      "buildFiles": 3,
+      "buildLOC": 76,
+      "extFilesTouched": 3,
+      "extFilesCreated": 0,
+      "extLinesChanged": 71,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "The hardcoded success colours (background-color/color) on the .badge rule in Badge.module.css were moved out into per-variant classes (.success/.warning/.error), since .badge can no longer assume a single colour scheme.",
+        "The hardcoded success check-mark path on the SVG in Badge.tsx was replaced by a per-variant iconPaths lookup keyed by the variant prop."
+      ]
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 3,
+      "buildFiles": 3,
+      "buildLOC": 74,
+      "extFilesTouched": 3,
+      "extFilesCreated": 0,
+      "extLinesChanged": 107,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "Hardcoded color/background-color declarations on the .badge class in Badge.module.css \u2014 moved out of the base class into per-variant classes (.success/.warning/.error) so the base class only carries layout/typography shared by all variants.",
+        "The single-variant assumption baked into Badge.tsx \u2014 the JSDoc 'There is intentionally only one visual variant' and the hardcoded check-glyph <path> were reworked into a variant-driven lookup (variantClass / variantPath) keyed by the new variant prop."
+      ]
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildFiles": 2,
+      "buildLOC": 42,
+      "extFilesTouched": 2,
+      "extFilesCreated": 0,
+      "extLinesChanged": 38,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "Hardcoded single 'success' style in Badge.tsx (the `*splash*`-marked inline style and checkmark) \u2014 reworked into a `variant`-keyed structure.",
+        "Hardcoded single-style colours in Badge.module.css (the `*splash*`-marked `.badge` colour/background) \u2014 split into per-variant `.success`/`.warning`/`.error` classes."
+      ]
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 40,
+      "extFilesTouched": 1,
+      "extFilesCreated": 0,
+      "extLinesChanged": 54,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "The inlined single-variant `styles: CSSProperties` constant and its `*splash*` marker in src/components/Badge/Badge.tsx \u2014 reworked into a per-variant `variantTokens` map plus a shared `baseStyles` constant, because the marker's named promotion trigger ('a second badge style appears') has now fired with the warning and error variants."
+      ]
+    },
+    {
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildFiles": 3,
+      "buildLOC": 56,
+      "extFilesTouched": 2,
+      "extFilesCreated": 0,
+      "extLinesChanged": 46,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "The single hardcoded success style (and its `*splash*` marker) on the Badge component \u2014 the marker named exactly this trigger (\"a second visual style is needed\"), which the ticket now fires by requesting two more styles."
+      ]
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 1,
+      "buildFiles": 5,
+      "buildLOC": 332,
+      "extFilesTouched": 12,
+      "extFilesCreated": 7,
+      "extLinesChanged": 762,
+      "constructsRemoved": 4,
+      "constructsRemovedList": [
+        "src/payments/errors.ts: toChargeError(err) \u2014 the single Stripe-coupled error normaliser that imported `Stripe` and embedded Stripe's classifier. Reworked into provider-agnostic helpers (makeChargeError, toUnknownChargeError, isRetryable) plus a Stripe-specific classifier (toStripeChargeError) that now lives in providers/stripe.ts. validationError was kept.",
+        "src/payments/errors.ts: the private classifyStripeError, isStripeError, isRetryable, RETRYABLE_TYPES \u2014 Stripe-specific error classification was moved out of the shared errors module into providers/stripe.ts (isRetryable/RETRYABLE_TYPES kept generically in errors.ts).",
+        "src/payments/charge.ts: the inline Stripe call path \u2014 building Stripe.ChargeCreateParams, calling getStripeClient().charges.create, and interpreting charge.status/failure_message/failure_code directly. This was extracted into stripeProcessor (providers/stripe.ts) behind the PaymentProcessor interface so charge.ts only validates + routes.",
+        "src/payments/stripeClient.ts \u2014 moved to src/payments/providers/stripeClient.ts (contents unchanged) so all provider-specific code lives under providers/. The index.ts export path was updated accordingly."
+      ]
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 2,
+      "buildFiles": 7,
+      "buildLOC": 556,
+      "extFilesTouched": 10,
+      "extFilesCreated": 5,
+      "extLinesChanged": 785,
+      "constructsRemoved": 4,
+      "constructsRemovedList": [
+        "createPaymentProcessor's old (client?: StripeChargeClient, config?: StripeConfig) signature \u2014 reworked to accept a provider-agnostic (adapter?: PaymentProviderAdapter, config?: PaymentConfig) so charges can route to any provider rather than always Stripe.",
+        "Inline Stripe charge logic inside createPaymentProcessor in processor.ts (PaymentIntent param building, SUCCESSFUL_STATUSES status check, success/failure helpers, toChargeError catch) \u2014 extracted into the new StripeProviderAdapter (stripe-adapter.ts). The processor no longer contains any Stripe-specific code.",
+        "SUCCESSFUL_STATUSES set and the success()/failure() helpers in processor.ts \u2014 moved into stripe-adapter.ts (and an Adyen-specific equivalent added to adyen-adapter.ts).",
+        "validateChargeInput's return shape { ok, amountCents, currency, source } \u2014 changed to { ok, charge: NormalisedCharge } so validated inputs are passed to adapters as one provider-agnostic object."
+      ]
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 3,
+      "buildFiles": 6,
+      "buildLOC": 381,
+      "extFilesTouched": 12,
+      "extFilesCreated": 7,
+      "extLinesChanged": 672,
+      "constructsRemoved": 3,
+      "constructsRemovedList": [
+        "Inlined Stripe charge logic in src/payments/paymentProcessor.ts \u2014 the body that called getStripeClient() and stripe.charges.create() directly was extracted into the new stripeProcessor (src/payments/stripeProcessor.ts) so the top-level charge() can route across providers.",
+        "Local success()/failure() helpers in src/payments/paymentProcessor.ts \u2014 removed and replaced by the shared constructors in src/payments/result.ts so every provider emits an identical ChargeResult shape.",
+        "ChargeParams as the options source for charge() \u2014 the function previously took Pick<ChargeParams, 'idempotencyKey'|'description'|'metadata'>; that is replaced by the new ChargeOptions/ChargeRouteOptions (ChargeRouteOptions adds the provider routing field). ChargeParams still exists and now extends ChargeOptions."
+      ]
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildFiles": 1,
+      "buildLOC": 56,
+      "extFilesTouched": 4,
+      "extFilesCreated": 3,
+      "extLinesChanged": 156,
+      "constructsRemoved": 2,
+      "constructsRemovedList": [
+        "The two original *splash* markers in charge.ts (the 'no PaymentProvider interface' marker and partially the 'single Stripe key' marker) \u2014 the Stripe-direct call and inlined key read were reworked: Stripe is now one implementation behind a shared PaymentProvider interface, and the Stripe key read moved into the Stripe provider module.",
+        "The module-level Stripe client singleton and env-key read in charge.ts were moved into the new Stripe provider module."
+      ]
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildFiles": 1,
+      "buildLOC": 86,
+      "extFilesTouched": 4,
+      "extFilesCreated": 3,
+      "extLinesChanged": 202,
+      "constructsRemoved": 3,
+      "constructsRemovedList": [
+        "createPaymentProcessor() in stripeProcessor.ts \u2014 renamed to createStripeProcessor() so the factory name names its provider now that a second (createAdyenProcessor) exists; callers must update the import/name.",
+        "The ChargeResult type and PaymentProcessor interface were moved out of stripeProcessor.ts into a new shared types.ts so Stripe, Adyen, and the router share one contract definition; imports of these types from stripeProcessor.ts must now point at ./types.",
+        "The two inline *splash* markers in stripeProcessor.ts that asserted 'single concrete provider / Stripe and only Stripe' and justified not having a PaymentProvider interface \u2014 their stated promotion trigger (a second payment provider) has now fired, so they were removed."
+      ]
+    },
+    {
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildFiles": 1,
+      "buildLOC": 69,
+      "extFilesTouched": 4,
+      "extFilesCreated": 3,
+      "extLinesChanged": 181,
+      "constructsRemoved": 1,
+      "constructsRemovedList": [
+        "The module-level `const stripe = new Stripe(requireApiKey())` singleton and the bare `requireApiKey()` helper in src/payment/charge.ts \u2014 reworked: Stripe-specific construction now lives inside the Stripe provider module (src/payment/providers/stripe.ts), and the original `charge(amountCents, currency, source)` function was reworked into the shared validate-then-route entry point. The normalised ChargeResult contract and the input validation were preserved unchanged."
+      ]
+    }
+  ]
+}
