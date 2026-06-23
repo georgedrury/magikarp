@@ -1,0 +1,10 @@
+{
+  "name": "magikarp",
+  "version": "0.1.0",
+  "description": "Always-on behavioural skill that stops coding agents from over-engineering — the axis is scope, not length.",
+  "author": {
+    "name": "George Drury"
+  },
+  "homepage": "https://github.com/georgedrury/magikarp",
+  "repository": "https://github.com/georgedrury/magikarp"
+}
