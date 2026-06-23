@@ -1,6 +1,8 @@
 # Magikarp
 
-*It only knows one move. So your agent builds only what you asked for — nothing speculative, nothing clever, nothing extra.*
+*But nothing happened.*
+
+It only knows one move. So your agent builds only what you asked for — nothing speculative, nothing clever, nothing extra.
 
 ---
 
@@ -64,6 +66,8 @@ const DEFAULT_PAGE_SIZE = 25
 The upgrade path lives in the code, never in someone's head.
 
 No comment on every literal — only where Magikarp resisted a real pull. The marker is a signal, not noise. The asterisks are load-bearing: bare `splash` collides with real code (CSS, animation classes, UI copy), so `*splash*` stays the distinctive, greppable token.
+
+And the marker is not silent. Whenever Magikarp holds the line, it says so — `Considered: <what> — but nothing happened.` The move ran, the speculative build was evaluated and declined, and the world was left unchanged. The chat line announces the restraint; the `*splash*` comment records it. Making the non-event visible is the point — a quiet omission surprises you as much as a quiet over-build.
 
 ## Evolving into Gyarados
 

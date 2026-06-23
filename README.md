@@ -1,8 +1,8 @@
 # Magikarp
 
-*It only knows one move. So your agent builds only what you asked for — nothing speculative, nothing clever, nothing extra.*
+*But nothing happened.*
 
-Magikarp is an always-on behavioural skill that stops coding agents from over-engineering. The axis is **scope, not length** — it doesn't shorten your code, it stops the agent building the abstraction for one caller, the config nobody asked for, the case the spec never mentioned. The one move it makes, it makes correctly and completely.
+It only knows one move. So your agent builds only what you asked for — nothing speculative, nothing clever, nothing extra. Magikarp is an always-on behavioural skill that stops coding agents from over-engineering: the axis is **scope, not length** — it doesn't shorten your code, it stops the agent building the abstraction for one caller, the config nobody asked for, the case the spec never mentioned. The one move it makes, it makes correctly and completely.
 
 ## Install (Claude Code)
 

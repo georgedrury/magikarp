@@ -37,6 +37,8 @@ const CASE_INSENSITIVE_ANCHORS = [
   // Identity
   'Gyarados',
   'evolve',
+  // The Splash flavour line — restraint is announced, not silent
+  'but nothing happened',
 ];
 
 function loadPorts() {

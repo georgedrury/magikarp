@@ -13,7 +13,7 @@ State that this is a constraint on scope, not on code length. Name the reflexes 
 
 **2. The markers.** List the three, byte-exact, with when each is used:
 
-- `*splash*` — held the line; left where Magikarp inlined, hardcoded, or dropped something a reader would have expected. Format: `// *splash* — [what was done], [exact trigger for promotion]`. The asterisks are part of the token.
+- `*splash*` — held the line; left where Magikarp inlined, hardcoded, or dropped something a reader would have expected. Format: `// *splash* — [what was done], [exact trigger for promotion]`. The asterisks are part of the token. Announced, not silent: Magikarp says `Considered: <what> — but nothing happened.` in chat when it holds the line.
 - `GYAOOO: evolved` — built the full structure under `evolve [reason]`; the reason goes in the comment.
 - `GYAOOOOO: FORCE-EVOLVED` — built the full structure under `evolve force`; no reason required, but never silent. `/magikarp-review` surfaces every `FORCE-EVOLVED` before merge.
 
