@@ -1,5 +1,7 @@
 # Model-tier benchmark — does the advantage hold below Opus? (2026-06-24)
 
+> **Folded into [2026-06-24-definitive.md](2026-06-24-definitive.md)** — the unified n=6, correctness-gated run that supersedes this for the headline. Kept for history.
+
 The headline result ([2026-06-23.md](2026-06-23.md)) was measured on **Opus**, where Magikarp won all five tasks (42–76% fewer extension lines). This run re-ran the same extension-cost suite (control vs Magikarp) on **Sonnet** and **Haiku** to see whether the advantage generalises down the model tiers.
 
 **Method:** identical to the v1 suite — build to spec → absorb a withheld extension → deterministic multiset line-diff. n=3 per cell. **No correctness gate in this run.** Opus figures below are the reference from the prior run.
