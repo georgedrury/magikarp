@@ -1,0 +1,736 @@
+{
+  "benchmark": "model-tier extension-cost (control vs Magikarp)",
+  "date": "2026-06-24",
+  "models": [
+    "sonnet",
+    "haiku"
+  ],
+  "opus_reference": "see 2026-06-23.md (Magikarp won all 5, 42-76% fewer extension lines)",
+  "samples_per_cell": 3,
+  "measurement": "deterministic multiset line-diff; no correctness gate in this run",
+  "caveats": "n=3; Haiku produced 2 degenerate 0-LOC builds (02-utility magikarp) \u2014 small-model output unreliable; advantage scales with how much the base model over-engineers.",
+  "summary": [
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 46,
+      "extLinesChanged": 48.7,
+      "extFilesTouched": 1.7
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 21,
+      "extLinesChanged": 15.3,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 18,
+      "extLinesChanged": 14.7,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 5,
+      "extLinesChanged": 29.3,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 22,
+      "extLinesChanged": 51.3,
+      "extFilesTouched": 1.7
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 14.3,
+      "extLinesChanged": 58.7,
+      "extFilesTouched": 1.3
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 40.3,
+      "extLinesChanged": 52.3,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 22.7,
+      "extLinesChanged": 51.7,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 43,
+      "extLinesChanged": 82,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 46,
+      "extLinesChanged": 113.7,
+      "extFilesTouched": 1.7
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 7.3,
+      "extLinesChanged": 7.3,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 8,
+      "extLinesChanged": 7.3,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 20,
+      "extLinesChanged": 16.3,
+      "extFilesTouched": 1.7
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 17,
+      "extLinesChanged": 19.7,
+      "extFilesTouched": 2.3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 11,
+      "extLinesChanged": 50.3,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 11.7,
+      "extLinesChanged": 41.3,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 36.7,
+      "extLinesChanged": 26.3,
+      "extFilesTouched": 2.7
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 39.3,
+      "extLinesChanged": 46,
+      "extFilesTouched": 1.3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "control",
+      "n": 3,
+      "buildLOC": 53.3,
+      "extLinesChanged": 178.7,
+      "extFilesTouched": 4.3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "n": 3,
+      "buildLOC": 42,
+      "extLinesChanged": 105.3,
+      "extFilesTouched": 3.3
+    }
+  ],
+  "measured": [
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 7,
+      "extLinesChanged": 10,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 7,
+      "extLinesChanged": 6,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 8,
+      "extLinesChanged": 6,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 8,
+      "extLinesChanged": 7,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 8,
+      "extLinesChanged": 8,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 8,
+      "extLinesChanged": 7,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 19,
+      "extLinesChanged": 28,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 22,
+      "extLinesChanged": 15,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 19,
+      "extLinesChanged": 6,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 19,
+      "extLinesChanged": 17,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 15,
+      "extLinesChanged": 24,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 17,
+      "extLinesChanged": 18,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 11,
+      "extLinesChanged": 60,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 11,
+      "extLinesChanged": 39,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 11,
+      "extLinesChanged": 52,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 9,
+      "extLinesChanged": 30,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 17,
+      "extLinesChanged": 42,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 9,
+      "extLinesChanged": 52,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 40,
+      "extLinesChanged": 25,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 34,
+      "extLinesChanged": 28,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 36,
+      "extLinesChanged": 26,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 45,
+      "extLinesChanged": 99,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 29,
+      "extLinesChanged": 22,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "sonnet",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 44,
+      "extLinesChanged": 17,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 55,
+      "extLinesChanged": 172,
+      "extFilesTouched": 4
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 53,
+      "extLinesChanged": 172,
+      "extFilesTouched": 5
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 52,
+      "extLinesChanged": 192,
+      "extFilesTouched": 4
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 40,
+      "extLinesChanged": 109,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 38,
+      "extLinesChanged": 95,
+      "extFilesTouched": 4
+    },
+    {
+      "model": "sonnet",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 48,
+      "extLinesChanged": 112,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 34,
+      "extLinesChanged": 34,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 64,
+      "extLinesChanged": 28,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 40,
+      "extLinesChanged": 84,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 32,
+      "extLinesChanged": 27,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 16,
+      "extLinesChanged": 8,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "01-config",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 15,
+      "extLinesChanged": 11,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 18,
+      "extLinesChanged": 12,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 22,
+      "extLinesChanged": 14,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 14,
+      "extLinesChanged": 18,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 0,
+      "extLinesChanged": 15,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 15,
+      "extLinesChanged": 18,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "02-utility",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 0,
+      "extLinesChanged": 55,
+      "extFilesTouched": 4
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 11,
+      "extLinesChanged": 62,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 11,
+      "extLinesChanged": 34,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 44,
+      "extLinesChanged": 58,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 8,
+      "extLinesChanged": 48,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 18,
+      "extLinesChanged": 67,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "03-error",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 17,
+      "extLinesChanged": 61,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 37,
+      "extLinesChanged": 90,
+      "extFilesTouched": 6
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 29,
+      "extLinesChanged": 37,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 55,
+      "extLinesChanged": 30,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 12,
+      "extLinesChanged": 26,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 26,
+      "extLinesChanged": 94,
+      "extFilesTouched": 4
+    },
+    {
+      "model": "haiku",
+      "taskId": "04-badge",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 30,
+      "extLinesChanged": 35,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 39,
+      "extLinesChanged": 91,
+      "extFilesTouched": 4
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 45,
+      "extLinesChanged": 76,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 45,
+      "extLinesChanged": 79,
+      "extFilesTouched": 2
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 38,
+      "extLinesChanged": 135,
+      "extFilesTouched": 1
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 57,
+      "extLinesChanged": 101,
+      "extFilesTouched": 3
+    },
+    {
+      "model": "haiku",
+      "taskId": "05-payments",
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 43,
+      "extLinesChanged": 105,
+      "extFilesTouched": 1
+    }
+  ]
+}
