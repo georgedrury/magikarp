@@ -28,6 +28,8 @@ More moves that did nothing — and what the alternative cost — in [examples/]
 
 The behavioural core loads at session start — active by default, no configuration, no Node dependency. Using another agent? See [Other agents](#other-agents).
 
+**Verify it's active:** in a fresh session, ask Claude *"is a Magikarp Splash-test instruction in your context?"* — it should say yes and summarise the two questions. (Install registers six commands plus a `SessionStart` hook that injects the core; smoke-tested end to end.)
+
 ## The Splash test
 
 Before building any construct, the agent asks two questions:
@@ -72,6 +74,7 @@ Magikarp never evolves on its own initiative. You pull the hatch:
 
 The same discipline ports to other tools — copy the relevant file into your project:
 
+- Any agent that reads `AGENTS.md` (Codex, Copilot CLI, …) — [AGENTS.md](AGENTS.md)
 - Cursor — [rules/cursor.mdc](rules/cursor.mdc)
 - Windsurf — [rules/windsurf.md](rules/windsurf.md)
 - Cline — [rules/cline.md](rules/cline.md)

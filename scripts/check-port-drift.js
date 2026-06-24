@@ -3,7 +3,7 @@
 // Usage:
 //   node scripts/check-port-drift.js
 //
-// Every file in rules/ is a port of core/magikarp.md. The Splash test, the
+// Every file in rules/, plus the root AGENTS.md, is a port of core/magikarp.md. The Splash test, the
 // never-cut list, the markers, and the evolve commands must be identical
 // across ports — only syntax and host-specific config keys may vary. This
 // script asserts each port still carries the normative anchors below and
@@ -43,12 +43,18 @@ const CASE_INSENSITIVE_ANCHORS = [
 
 function loadPorts() {
   const entries = fs.readdirSync(rulesDir);
-  return entries
+  const ports = entries
     .filter((name) => fs.statSync(path.join(rulesDir, name)).isFile())
     .map((name) => ({
       name,
       content: fs.readFileSync(path.join(rulesDir, name), 'utf8'),
     }));
+  // AGENTS.md is the universal port at the repo root — held to the same anchors.
+  const agentsFile = path.join(repoRoot, 'AGENTS.md');
+  if (fs.existsSync(agentsFile)) {
+    ports.push({ name: 'AGENTS.md', content: fs.readFileSync(agentsFile, 'utf8') });
+  }
+  return ports;
 }
 
 // Returns the list of anchors a port is missing (empty list = clean port).
