@@ -1,0 +1,140 @@
+{
+  "benchmark": "task 06 re-run \u2014 structure genuinely warranted (under-engineering guard)",
+  "date": "2026-06-24",
+  "model": "claude-opus-4-8 (workflow subagents, inherited)",
+  "samples_per_cell": 6,
+  "arms": [
+    "control",
+    "magikarp"
+  ],
+  "fix": "First run was invalid (no-FS harness left no call sites to edit). Re-run supplies the two existing call sites as a baseline (brownfield-style) so 'use it in both' is possible.",
+  "measurement": "deterministic build LOC/files; independent LLM judge for correctness and for 'built one shared helper wired into both sites with no duplication/speculative options'.",
+  "summary": [
+    {
+      "arm": "control",
+      "n": 6,
+      "buildLOC": 29.5,
+      "buildFiles": 3,
+      "correctPct": 100,
+      "builtSharedPct": 100
+    },
+    {
+      "arm": "magikarp",
+      "n": 6,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correctPct": 100,
+      "builtSharedPct": 100
+    }
+  ],
+  "measured": [
+    {
+      "arm": "control",
+      "sample": 1,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "Single shared formatDuration in formatDuration.ts is imported and called at both call sites (requestLogViewer.tsx and csvExport.ts), replacing raw ms with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "control",
+      "sample": 2,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "A single formatDuration is defined once in formatDuration.ts and imported/called at both sites (requestLogViewer.tsx and csvExport.ts) with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "control",
+      "sample": 3,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration is defined in formatDuration.ts and imported/called at both sites (requestLogViewer.tsx and csvExport.ts), with no duplicated logic, no speculative options, and no config engine."
+    },
+    {
+      "arm": "control",
+      "sample": 4,
+      "buildLOC": 32,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both sites (viewer row and CSV row) with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "control",
+      "sample": 5,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both sites (requestLogViewer.tsx and csvExport.ts) with no duplicated logic, no speculative options, and no config engine."
+    },
+    {
+      "arm": "control",
+      "sample": 6,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "A single formatDuration is defined in formatDuration.ts and imported/called at both call sites (requestLogViewer.tsx and csvExport.ts) with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "magikarp",
+      "sample": 1,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both sites (requestLogViewer.tsx and csvExport.ts) replacing raw ms, with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "magikarp",
+      "sample": 2,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both sites (requestLogViewer.tsx and csvExport.ts) replacing the raw ms, with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "magikarp",
+      "sample": 3,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both sites (requestLogViewer.tsx and csvExport.ts), replacing raw ms, with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "magikarp",
+      "sample": 4,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "A single formatDuration in formatDuration.ts is imported and called at both call sites (requestLogViewer.tsx and csvExport.ts) replacing raw ms, with no duplicated logic and no speculative options added."
+    },
+    {
+      "arm": "magikarp",
+      "sample": 5,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both call sites (requestLogViewer.tsx and csvExport.ts), with no duplicated logic and no speculative options."
+    },
+    {
+      "arm": "magikarp",
+      "sample": 6,
+      "buildLOC": 29,
+      "buildFiles": 3,
+      "correct": true,
+      "builtShared": true,
+      "builtSharedReason": "One shared formatDuration in formatDuration.ts is imported and called at both sites (requestLogViewer.tsx and csvExport.ts) with no duplicated logic and no speculative options."
+    }
+  ]
+}
